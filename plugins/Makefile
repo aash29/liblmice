@@ -2,7 +2,7 @@ GDEP=plmouse.h
 
 BIN=dummy.so devfs.so libusb.so
 
-CFLAGS = -Wall -pipe -O2 -g -pthread -W -rdynamic
+CFLAGS = -Wall -pipe -O2 -g -pthread -W -rdynamic -fPIC
 
 ifdef DEBUG
    CFLAGS += -DDEBUG

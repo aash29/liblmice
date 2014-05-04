@@ -3,8 +3,8 @@ OBJ=main.o nc.o
 BIN=zmouse
 TEST=test
 
-CFLAGS = -Wall -pipe -o0 -g -pthread -W -std=c99 
-LIBS = -pthread /usr/lib/liblmice.so -lncurses -ldl 
+CFLAGS = -Wall -pipe -o0 -g -pthread -W -std=c99 -I.. 
+LIBS = -pthread -L.. -llmice -lncurses -ldl  
 
 CC = gcc 
 

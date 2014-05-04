@@ -9,8 +9,8 @@ BIN=liblmice.so
 INC=liblmice.h
 
 DEFS=-DPLUGINDIR=\"$(INSTDIR)\"
-CFLAGS = -Wall -pipe -O2 -g -pthread -W -std=c99  $(DEFS)
-LIBS = -shared -lm -ldl
+CFLAGS = -Wall -pipe -O2 -g -pthread -W -std=c99 -fPIC $(DEFS)
+LIBS = -shared -lm -ldl -fPIC
 
 CC = gcc 
 LD = ld
@@ -48,10 +48,10 @@ uninstall: recursive
 	rm $(PREFIX)/include/$(INC)
 
 clean: recursive
-	@rm *.o $(BIN)
+	-@rm *.o $(BIN)
 
 clean_doc:
-	@rm -r html latex rtf xml
+	-@rm -r html latex rtf xml
 
 	
 recursive:
