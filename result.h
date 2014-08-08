@@ -8,11 +8,11 @@
 bool lmice_result_get(LMiceResult *result);
     
 /* data functions */
-inline LMiceData *lmice_data_new();
-inline void lmice_data_clear(LMiceData *data);
-inline LMiceData *lmice_data_dup(LMiceData *src);
-inline LMiceData *lmice_data_copy(LMiceData *dst, LMiceData *src);
-inline void lmice_data_delete(LMiceData *data);
+ LMiceData *lmice_data_new();
+ void lmice_data_clear(LMiceData *data);
+ LMiceData *lmice_data_dup(LMiceData *src);
+ LMiceData *lmice_data_copy(LMiceData *dst, LMiceData *src);
+ void lmice_data_delete(LMiceData *data);
 
 
 #endif

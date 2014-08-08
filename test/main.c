@@ -51,8 +51,10 @@ int cb(LMiceSignal signal, int idata, LMiceResult *result, void *data)
 int main() {
     nc_init();
     file = freopen("lib.log", "w", stderr);
-    signal(SIGINT, finish);
-    int mice = lmice_init(LMICE_SYSTEM_LIBUSB); /* Set plugintype */
+    //signal(SIGINT, finish);
+    //int mice = lmice_init(LMICE_SYSTEM_LIBUSB); /* Set plugintype */
+    int mice = lmice_init(LMICE_SYSTEM_DEVFS); /* Set plugintype */
+
     if (mice < 0) {
 	finish(0);
     }

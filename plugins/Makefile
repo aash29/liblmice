@@ -30,7 +30,7 @@ dist: strip install
 	@echo "Installed stripped plugins"
 
 install: 
-	@mkdirhier $(INSTDIR)
+	@mkdir -p $(INSTDIR)
 	cp $(BIN) $(INSTDIR)/
 
 uninstall:

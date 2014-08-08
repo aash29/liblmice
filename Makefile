@@ -9,7 +9,7 @@ BIN=liblmice.so
 INC=liblmice.h
 
 DEFS=-DPLUGINDIR=\"$(INSTDIR)\"
-CFLAGS = -Wall -pipe -O2 -g -pthread -W -std=c99 -fPIC $(DEFS)
+CFLAGS = -Wall -pipe -O2 -g -pthread -W -std=c99 -fPIC $(DEFS) -Winline
 LIBS = -shared -lm -ldl -fPIC
 
 CC = gcc 

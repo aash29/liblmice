@@ -110,6 +110,31 @@ void nc_result(LMiceResult *result) {
     //wrefresh(stdout);
 }
 
+
+void nc_result2(LMiceResult *result) {
+    //wmove(rswin, 0,0);
+    LMiceData *data;
+    //fprintf(mouselog, "Read of %d mouses in %lld usec\n", result->count, result->time);
+    for(int i=1; i<result->count; i++) {
+	data = result->data[i];
+/*        
+	fprintf(stdout, "res: %d:", i);
+        fprintf(stdout, "(%3.3f, %3.3f) ", data->move_x, data->move_y);
+        fprintf(stdout, "(%3d, %3d) ", data->raw_x, data->raw_y);
+        fprintf(stdout, "overflows (%d, %d) ", data->overflow_x, data->overflow_y);
+        fprintf(stdout, "read %d", data->reads);
+	if (data->reads) {
+            fprintf(stdout, "avgtime is %lld \n", result->time/data->reads);
+*/
+	fprintf(mouselog, 
+		//"%d: move=(%3.3f, %3.3f) raw=(%3d, %3d)\n", 
+		"%d, %3d, %3d\n", 
+		i, 
+		data->raw_x, data->raw_y);
+    }
+    //wrefresh(stdout);
+}
+
 void nc_error(char *errstr)
 {
     //wmove(lgwin, 0,0);

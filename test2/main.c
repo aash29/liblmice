@@ -48,6 +48,16 @@ int cb(LMiceSignal signal, int idata, LMiceResult *result, void *data)
     return false;
 }
 
+int cb2(LMiceSignal signal, int idata, LMiceResult *result, void *data)
+{
+    data = data;
+    //fprintf(stdout, "call: Callback signal : %d : %d : %lld\n", signal, idata, result->time);
+    nc_result2(result);
+    lmice_result_copy(lastres, result);
+    //wrefresh(cbwin);
+    return false;
+}
+
 int main() {
     nc_init();
     file = freopen("lib.log", "w", stderr);
@@ -62,9 +72,9 @@ int main() {
     pthread_create(&thread, NULL, err_log, NULL);
     //wrefresh(shwin);
     lastres = lmice_result_new();
-    lmice_connect(LMICE_CB_NEW_DATA, cb, NULL);
-    lmice_connect(LMICE_CB_OVERFLOW, cb, NULL);
-    lmice_timer_set(1000000);
+    lmice_connect(LMICE_CB_NEW_DATA, cb2, NULL);
+    lmice_connect(LMICE_CB_OVERFLOW, cb2, NULL);
+    lmice_timer_set(100000);
 
     char ch = nc_getc();
     bool ok = true;
@@ -92,7 +102,7 @@ int main() {
 		ok = lmice_read(result, false);
 		if (!ok) 
 		    nc_error("Read error \n");
-		nc_result(result);
+		nc_result2(result);
 		break;
 		break;
 	    case 'x':
