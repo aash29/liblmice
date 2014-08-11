@@ -22,3 +22,13 @@ realy(:,1)=readx(:,1)*cos(angle1+pi/2)*scale1+ready(:,1)*sin(angle1+pi/2)*scale1
 
 realx(:,2)=readx(:,2).*cos(angle2)*scale2+ready(:,2)*sin(angle2)*scale2;
 realy(:,2)=readx(:,2).*cos(angle2+pi/2)*scale2+ready(:,2)*sin(angle2+pi/2)*scale2;
+
+
+r1x=5;
+r1y=0;
+r2x=-5;
+r2y=0;
+
+A=[1 0 -r1y;
+   0 1 r1x;
+   1 0 r2y]
