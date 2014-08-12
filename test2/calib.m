@@ -1,10 +1,5 @@
 %S = load('mouse.log', '-ascii');
-function [scale,angle] = calib(S);
-    readx(:,1)=S(1:2:end,2,:);
-    readx(:,2)=S(2:2:end,2,:);
-
-    ready(:,1)=S(1:2:end,3,:);
-    ready(:,2)=S(2:2:end,3,:);
+function [scale,angle] = calib(readx,ready);
 
     dist1=sqrt(readx(:,1).^2 + ready(:,1).^2)
     dist2=sqrt(readx(:,2).^2 + ready(:,2).^2)

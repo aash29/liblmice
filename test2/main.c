@@ -74,7 +74,7 @@ int main() {
     lastres = lmice_result_new();
     lmice_connect(LMICE_CB_NEW_DATA, cb2, NULL);
     lmice_connect(LMICE_CB_OVERFLOW, cb2, NULL);
-    lmice_timer_set(100000);
+    lmice_timer_set(100);
 
     char ch = nc_getc();
     bool ok = true;

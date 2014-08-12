@@ -115,7 +115,7 @@ void nc_result2(LMiceResult *result) {
     //wmove(rswin, 0,0);
     LMiceData *data;
     //fprintf(mouselog, "Read of %d mouses in %lld usec\n", result->count, result->time);
-    for(int i=1; i<result->count; i++) {
+    for(int i=0; i<result->count-1; i++) {
 	data = result->data[i];
 /*        
 	fprintf(stdout, "res: %d:", i);

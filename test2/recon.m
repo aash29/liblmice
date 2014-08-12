@@ -1,6 +1,15 @@
+close all
+clear all
 S = load('mouse.log', '-ascii');
 
-%[scale,angle] = calib(S);
+readx(:,1)=S(1:2:end,2,:);
+readx(:,2)=S(2:2:end,2,:);
+
+ready(:,1)=S(1:2:end,3,:);
+ready(:,2)=S(2:2:end,3,:);
+
+[scale,angle] = calib(readx,ready);
+
 
 scale=[1;1.0047];
 angle=[1.5968;1.5708];
@@ -36,6 +45,8 @@ a=[realx(i,1);
 
 dx=A\a;
 
+Theta=pos(end,3);
+
 T=[cos(Theta(end)) -sin(Theta(end)) 0;
     sin(Theta(end)) cos(Theta(end)) 0;
     0 0 1];
@@ -54,5 +65,6 @@ pos=[pos; X1'];
 end
 figure
 plot(pos(:,1),pos(:,2));
+axis equal
 figure
 plot(pos(:,3));
